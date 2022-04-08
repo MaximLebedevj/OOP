@@ -1,5 +1,3 @@
-package lecture5;
-
 class Amplifier {
     int volume;
     public void on() {
