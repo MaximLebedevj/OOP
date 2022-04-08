@@ -3,17 +3,17 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public interface Subject {
+interface Subject {
     void registerObserver(Observer observer);
     void removeObserver(Observer observer);
     void notifyObservers();
 }
 
-public interface Observer {
+interface Observer {
     void updater(float temperature, float humididty, float pressure);
 }
 
-public class WeatherData implements Subject{
+class WeatherData implements Subject{
     private List<Observer> observers = new LinkedList<>();
     
     @Override
@@ -52,7 +52,7 @@ public class WeatherData implements Subject{
     }
 }
 
-public class StatisticsDisplay implements Observer {
+class StatisticsDisplay implements Observer {
     private float temperature;
     private float humidity;
     private float pressure;
@@ -97,7 +97,7 @@ public class StatisticsDisplay implements Observer {
     }
 }
 
-public class ForecastDisplay implements Observer{
+class ForecastDisplay implements Observer{
     private float temperature;
     private float humidity;
     private float pressure;
@@ -116,7 +116,7 @@ public class ForecastDisplay implements Observer{
     }
 }
 
-public class CurrentConditionsDisplay implements Observer{
+class CurrentConditionsDisplay implements Observer{
     private float temperature;
     private float humidity;
     private float pressure;
@@ -140,7 +140,7 @@ public class CurrentConditionsDisplay implements Observer{
     }
 }
 
-public class Main {
+class Main {
     public static void main(String[] args) {
         WeatherData weatherData = new WeatherData();
         CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
